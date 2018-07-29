@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+      <script src="components/loader.js"></script>
+      <script src="lib/onsenui/js/onsenui.min.js"></script>
+
+      <link rel="stylesheet" href="components/loader.css">
+      <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+      <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+      <link rel="stylesheet" href="css/style.css">
+
+   </head>
+   <body>
+   <ons-page>
+      <ons-toolbar>
+         <div class="center">Cordova</div>
+      </ons-toolbar>
+      <div style="margin: 10px auto; width: 320px; height: 350px; position: relative">
+         <img src="images/reper.jpg" style="display: block; margin: 0 auto;">
+         <div 
+style='background-image: url("images/compass.png"); position: absolute; top:30px; right: 0; width: 320px; height: 320px;' id="cadran">
+            <div id="indicator" style='width: 320px; height: 320px; background-image: url("images/indicator.png")'></div>
+         </div>
+      </div>
+      <p style="text-align: center;">
+         <ons-input type="number" id="unghi" modifier="underbar" placeholder="Unghi (grade față de N)" float></ons-input><br>
+         <ons-button id="set">Set</ons-button>
+      </p>
+   </ons-page>
+   <script>
+   (function () {
+
+       function tratareEvenimente() {
+           var watchID = navigator.compass.watchHeading(onSuccess, onError, {frequency: 10});
+           document.querySelector("#set").addEventListener("click", function() {
+              // Citesc unghiul
+              var u = document.querySelector("#unghi").value;
+              //  Rotesc cadranul
+              var element = document.querySelector("#cadran");
+              var rot = "rotate(" + (-u) + "deg)";
+              element.style.transform = rot;
+            });
+       }
+
+       ons.ready(function () {
+           console.log("Onsen UI is ready!");
+           tratareEvenimente();
+       });
+
+       function onSuccess(heading) {
+           var element = document.querySelector("#indicator");
+           var rot = "rotate(" + (-heading.magneticHeading) + "deg)";
+           element.style.transform = rot;
+       }
+
+       function onError(compassError) {
+           ons.notification.alert('Compass error: ' + compassError.code);
+       }
+   })();
+</script>
+</body>
+</html>
