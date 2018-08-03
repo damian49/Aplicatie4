@@ -4,7 +4,7 @@ Small mobile application (*hybrid*) which displays a compass.
 ![The compass](images/imagine.jpg?raw=true "")
 
 ## Atenție la sintaxă! 
-Selectarea unui element care are id se scrie altfel:
+Selectarea unui element care are *id* se scrie altfel:
 ```
 var u = document.querySelector("#unghi").value;
 ```
