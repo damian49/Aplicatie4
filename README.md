@@ -1,7 +1,7 @@
 # Aplicatie4
 Small mobile application (*hybrid*) which displays a compass.
 
-![](images/imagine.jpg?raw=true "")
+![The compass](images/imagine.jpg?raw=true "")
 
 ## Atenție la sintaxă! 
 Selectarea unui element care are id se scrie altfel:
