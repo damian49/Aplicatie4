@@ -1,7 +1,8 @@
 # Aplicatie4
 Small mobile application (*hybrid*) which displays a compass.
 
-![The compass](images/imagine.jpg?raw=true "")
+![The compass](https://github.com/damian49/Aplicatie4/blob/master/images/imagine.jpg)
+
 
 ## Atenție la sintaxă! 
 Selectarea unui element care are *id* se scrie altfel:
