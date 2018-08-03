@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+<!-- Fisier editat de Ioana Florina Pop -->
 <html>
    <head>
       <meta charset="utf-8">
@@ -30,36 +31,6 @@ style='background-image: url("images/compass.png"); position: absolute; top:30px
          <ons-button id="set">Set</ons-button>
       </p>
    </ons-page>
-   <script>
-   (function () {
-
-       function tratareEvenimente() {
-           var watchID = navigator.compass.watchHeading(onSuccess, onError, {frequency: 10});
-           document.getElementById("set").addEventListener("click", function() {
-              // Citesc unghiul
-              var u = document.getElementById("unghi").value;
-              //  Rotesc cadranul
-              var element = document.getElementById("cadran");
-              var rot = "rotate(" + (-u) + "deg)";
-              element.style.transform = rot;
-            });
-       }
-
-       ons.ready(function () {
-           console.log("Onsen UI is ready!");
-           tratareEvenimente();
-       });
-
-       function onSuccess(heading) {
-           var element = document.getElementById("indicator");
-           var rot = "rotate(" + (-heading.magneticHeading) + "deg)";
-           element.style.transform = rot;
-       }
-
-       function onError(compassError) {
-           ons.notification.alert('Compass error: ' + compassError.code);
-       }
-   })();
-</script>
+   <script src="js/app.js"></script>
 </body>
 </html>
