@@ -1,5 +1,5 @@
 # Aplicatie4
-Small mobile application (hybrid) which displays a compass.
+Small mobile application (*hybrid*) which displays a compass.
 
 ## Atenție la sintaxă! 
 Selectarea unui element care are id se scrie altfel:
